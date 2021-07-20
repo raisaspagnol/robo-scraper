@@ -1,0 +1,22 @@
+{
+  "name": "robot-scraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raisaspagnol/robot-scraper.git"
+  },
+  "author": "Raisa Spagnol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raisaspagnol/robot-scraper/issues"
+  },
+  "homepage": "https://github.com/raisaspagnol/robot-scraper#readme",
+  "description": "",
+  "dependencies": {
+    "puppeteer": "^10.1.0"
+  }
+}
