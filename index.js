@@ -7,6 +7,7 @@ const puppeteer = require('puppeteer');
 
   const courses = [
       'Análise e Desenvolvimento de Sistemas',
+      'Engenharia de Software'
     //   'Agronomia',
     //   'Arquitetura e Urbanismo',
     //   'Automação Industrial',
@@ -22,24 +23,27 @@ const puppeteer = require('puppeteer');
                                .normalize("NFD")
                                .replace(/[\u0300-\u036f]/g, "")
 
+    console.log(courseName)
+
     const page = await browser.newPage();
 
     //Acessa a página do curso
     await page.goto(`https://www.unicesumar.edu.br/ead/cursos-graduacao/${courseName}`);  
     
-    await page.select("select#selEstado", "PR")
+    await page.select("select#selEstado", "PR");
 
     await page.waitFor(3000)
 
     await page.select("select#selPolo", "13")
 
-    await page.waitFor(3000)
+    await page.waitFor(3000)  
 
     //Pega o valor do curso
     const element = await page.waitForSelector('#precoDemais');
-    const price = await element.evaluate(el => el.textContent);
 
-    console.log(`O preço do curso ${course} é R$ ${price}`)
+    const price = await element.evaluate(el => el.textContent);
+    const priceConvert = parseFloat(price)
+    console.log(`O preço do curso ${course} é R$ ${priceConvert}`)
   }
 //   await browser.close();
 })();
